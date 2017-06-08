@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="filmsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Films IMDB Application</title>
+    <link rel="stylesheet" href="js-libraries/ngDialog/ngDialog.min.css">
+    <link rel="stylesheet" href="js-libraries/ngDialog/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js-libraries/angular.js"></script>
+    <script src="js-libraries/angular-route.js"></script>
+    <script src="js-libraries/ngDialog/ngDialog.min.js"></script>
+    <script src="js-libraries/angular-animate.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/main-controller.js"></script>
+    <script src="components/main-page/main-page-ctrl.js"></script>
+    <script src="components/favourites-page/favourites-page-ctrl.js"></script>
+    <script src="components/chart-page/chart-page-ctrl.js"></script>
+    <script src="js/directives.js"></script>
+    <style>
+        .highlight {
+            transition:0.5s linear all;
+        }
+        .highlight.on-add {
+            background:tomato;
+        }
+        .highlight.on {
+            background:yellow;
+        }
+        .highlight.on-remove {
+            background:black;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="MainListCtrl">
+    <div class="wrapper">
+        <a href="javascript:void(0);" class="btn-switch" ng-click="showMain()">Top 20 films</a>
+        <a href="javascript:void(0);" class="btn-switch" ng-click="showElect()">Favorite films</a>
+        <a href="javascript:void(0);" class="btn-switch" ng-click="showChart()">Films chart</a>
+        <div class="my-view" ng-class="{'show': visibility}" ng-view></div>
+    </div>
+</div>
+<script src="js-libraries/ngChart/ng-google-chart.min.js"></script>
+</body>
+</html>

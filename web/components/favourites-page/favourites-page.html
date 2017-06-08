@@ -1,0 +1,30 @@
+<h1>Your favorite films</h1>
+<div ng-controller="FavouritesListCtrl">
+    <ul class="films-view__list">
+        <li ng-repeat="film in films" ng-if="film.status" class="films-view__item">
+            <img ng-src={{film.urlPoster}} alt="Poster">
+            <h2>{{film.title}}</h2>
+            <p><input class="favorites" type="checkbox" id="{{film.idIMDB}}" ng-model="film.status" add-favorite="{{$index}}"><label for="{{film.idIMDB}}"><span>{{addText(film.status)}}</span></label></p>
+            <p><span class="year">{{film.year}}</span></p>
+            <p class="rate">{{film.rating}}</p>
+            <p>
+                    <span class="genre" ng-repeat="genre in film.genres">
+                        <span>{{genre}}{{$last ? '' : ', '}}</span>
+                    </span>
+            </p>
+            <p>
+                    <span class="countries" ng-repeat="country in film.countries">
+                        <span>{{country}}</span>
+                    </span>
+            </p>
+            <p>
+                    <span class="directors" ng-repeat="director in film.directors">
+                        <a href="http://www.imdb.com/name/{{director.id}}">{{director.name}}</a>
+                    </span>
+            </p>
+            <p>
+                <a class="btn-watch" href="javascript:void(0);" ng-click="open(film.urlPoster)">Watch trailer</a>
+            </p>
+        </li>
+    </ul>
+</div>
